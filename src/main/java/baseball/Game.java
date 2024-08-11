@@ -16,4 +16,17 @@ public class Game {
 
         return isDup ? generateAnswer() : result;
     }
+
+    // [ball개수, strike개수]를 리턴
+    int[] checkAnswer(int[] answer, int[] userInput) {
+        int[] result = {0, 0}; // [ball, strike]
+        for (int i = 0; i < answer.length; i++) {
+            for (int j = 0; j < userInput.length; j++) {
+                if (answer[i] != userInput[j]) continue;
+                result[i == j ? 1 : 0] += 1;
+            }
+        }
+
+        return result;
+    }
 }
