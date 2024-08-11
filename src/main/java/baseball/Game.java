@@ -1,6 +1,54 @@
 package baseball;
 
+import java.util.Scanner;
+
 public class Game {
+    Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        Game game = new Game();
+        do {
+            game.play();
+        } while (game.shouldRestart());
+    }
+
+    void play() {
+        int[] answer = generateAnswer();
+        while(true) {
+            int[] userInput = getUserInput();
+            int[] result = checkAnswer(answer, userInput);
+            printResult(result);
+            if (result[1] == 3) {
+                break;
+            }
+        }
+    }
+
+    int[] getUserInput() {
+        System.out.println("숫자를 입력해주세요:");
+        String userInput = scanner.nextLine();
+
+        return userInput.chars() // IntStream
+                .map(Character::getNumericValue) // get numeric value
+                .toArray(); // 배열 리턴
+    }
+
+    void printResult(int[] result) {
+        if (result[0] == 0 && result[1] == 0) {
+            System.out.println("포볼");
+            return;
+        }
+
+        System.out.printf("%d볼 %d스트라이크\n", result[0], result[1]);
+    }
+
+    boolean shouldRestart() {
+        System.out.println("3개의 숫자를 모두 맞추셨습니다. 게임 종료.");
+        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
+        int restart = scanner.nextInt();
+        scanner.nextLine(); // clear buffer
+        return restart == 1;
+    }
 
     int[] generateAnswer() {
         int[] result = new int[3];
@@ -29,4 +77,6 @@ public class Game {
 
         return result;
     }
+
+
 }
