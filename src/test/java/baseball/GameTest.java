@@ -21,7 +21,8 @@ class GameTest {
 
     @BeforeAll
     static void beforeAll() {
-        game = new Game();
+        InputView input = new InputView();
+        game = new Game(input);
     }
 
     @Test
