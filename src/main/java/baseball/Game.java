@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     Scanner scanner = new Scanner(System.in);
+    InputView inputView = new InputView();
 
     public static void main(String[] args) {
         Game game = new Game();
@@ -15,7 +16,7 @@ public class Game {
     void play() {
         int[] answer = generateAnswer();
         while(true) {
-            int[] userInput = getUserInput();
+            int[] userInput = getUserInput(inputView.getUserInput());
             int[] result = checkAnswer(answer, userInput);
             printResult(result);
             if (result[1] == 3) {
@@ -24,10 +25,7 @@ public class Game {
         }
     }
 
-    int[] getUserInput() {
-        System.out.println("숫자를 입력해주세요:");
-        String userInput = scanner.nextLine();
-
+    int[] getUserInput(String userInput) {
         return userInput.chars() // IntStream
                 .map(Character::getNumericValue) // get numeric value
                 .toArray(); // 배열 리턴
