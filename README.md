@@ -1,3 +1,30 @@
+# 숫자야구게임
+
+## 기능 요구 사항
+
+기본적으로 1부터 9까지 서로 다른 수로 이루어진 3자리의 수를 맞추는 게임이다.
+
+- [ ] 임의의 수 3개를 지정하는 기능
+- [ ] 사용자의 입력을 받는 기능
+- [ ] 스트라이크, 볼의 개수를 계산하는 기능
+- [ ] 사용자의 결과를 출력하는 기능
+- [ ] 게임을 다시 시작하거나 종료하는 기능
+
+## 커밋 요구사항
+
+커밋은 아래 단위로 기록한다.
+
+- feat (feature)
+- fix (bug fix)
+- docs (documentation)
+- style (formatting, missing semi colons, …)
+- refactor
+- test (when adding missing tests)
+- chore (maintain)
+
+---
+
+
 ## [NEXTSTEP 플레이그라운드의 미션 진행 과정](https://github.com/next-step/nextstep-docs/blob/master/playground/README.md)
 
 ---
