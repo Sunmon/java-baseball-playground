@@ -4,13 +4,18 @@ import java.util.Scanner;
 
 public class Game {
     Scanner scanner = new Scanner(System.in);
-    InputView inputView = new InputView();
+    InputView inputView;
+
+    Game(InputView inputView) {
+        this.inputView = inputView;
+    }
 
     public static void main(String[] args) {
-        Game game = new Game();
+        InputView inputView = new InputView();
+        Game game = new Game(inputView);
         do {
             game.play();
-        } while (game.shouldRestart());
+        } while (game.shouldRestart(inputView.getRestartInput()));
     }
 
     void play() {
@@ -23,6 +28,7 @@ public class Game {
                 break;
             }
         }
+        System.out.println("3개의 숫자를 모두 맞추셨습니다. 게임 종료.");
     }
 
     int[] getUserInput(String userInput) {
@@ -40,12 +46,8 @@ public class Game {
         System.out.printf("%d볼 %d스트라이크\n", result[0], result[1]);
     }
 
-    boolean shouldRestart() {
-        System.out.println("3개의 숫자를 모두 맞추셨습니다. 게임 종료.");
-        System.out.println("게임을 새로 시작하려면 1, 종료하려면 2를 입력하세요.");
-        int restart = scanner.nextInt();
-        scanner.nextLine(); // clear buffer
-        return restart == 1;
+    boolean shouldRestart(String userInput) {
+        return userInput.equals("1");
     }
 
     int[] generateAnswer() {
@@ -75,6 +77,4 @@ public class Game {
 
         return result;
     }
-
-
 }
