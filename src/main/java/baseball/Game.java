@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Game {
     Scanner scanner = new Scanner(System.in);
     InputView inputView;
+    OutputView outputView = new OutputView();
 
     Game(InputView inputView) {
         this.inputView = inputView;
@@ -23,12 +24,12 @@ public class Game {
         while(true) {
             int[] userInput = getUserInput(inputView.getUserInput());
             int[] result = checkAnswer(answer, userInput);
-            printResult(result);
+            outputView.printResult(result);
             if (result[1] == 3) {
                 break;
             }
         }
-        System.out.println("3개의 숫자를 모두 맞추셨습니다. 게임 종료.");
+        outputView.printEndMessage();
     }
 
     int[] getUserInput(String userInput) {
@@ -37,14 +38,7 @@ public class Game {
                 .toArray(); // 배열 리턴
     }
 
-    void printResult(int[] result) {
-        if (result[0] == 0 && result[1] == 0) {
-            System.out.println("포볼");
-            return;
-        }
 
-        System.out.printf("%d볼 %d스트라이크\n", result[0], result[1]);
-    }
 
     boolean shouldRestart(String userInput) {
         return userInput.equals("1");
