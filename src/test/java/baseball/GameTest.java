@@ -24,8 +24,10 @@ class GameTest {
         int[] result = game.generateAnswer();
 
         assertThat(result).hasSize(3);
-        for(int n : result) {
-            assertThat(n).isBetween(1,9);
+        for (int n : result) {
+            assertThat(n).isBetween(1, 9);
         }
+
+        assertThat(result).containsOnlyOnce(result[0], result[1], result[2]);
     }
 }
