@@ -21,7 +21,7 @@ public class Game {
 
     void play() {
         int[] answer = generateAnswer();
-        while(true) {
+        while (true) {
             int[] userInput = getUserInput(inputView.getUserInput());
             int[] result = checkAnswer(answer, userInput);
             outputView.printResult(result);
@@ -38,8 +38,6 @@ public class Game {
                 .toArray(); // 배열 리턴
     }
 
-
-
     boolean shouldRestart(String userInput) {
         return userInput.equals("1");
     }
@@ -47,13 +45,13 @@ public class Game {
     int[] generateAnswer() {
         int[] result = new int[3];
         boolean isDup = false;
-        for(int i = 0; i<result.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             result[i] = (int) ((Math.random() * 9) + 1);
         }
         // 중복된 숫자 체크
-        for(int i = 0; i<result.length; i++) {
-            isDup = isDup || result[(i+1)%3] == result[i];
-            isDup = isDup || result[(i+2)%3] == result[i];
+        for (int i = 0; i < result.length; i++) {
+            isDup = isDup || result[(i + 1) % 3] == result[i];
+            isDup = isDup || result[(i + 2) % 3] == result[i];
         }
 
         return isDup ? generateAnswer() : result;

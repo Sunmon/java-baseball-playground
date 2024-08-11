@@ -38,13 +38,12 @@ class GameTest {
         assertThat(result).containsOnlyOnce(result[0], result[1], result[2]);
     }
 
-
     static Iterable<Arguments> getTestData() {
         return List.of(
-                Arguments.of(new int[]{1, 2, 3},new int[]{3,2,1},new int[] {2,1}),
-                Arguments.of(new int[]{4,2,3},new int[]{4,2,3},new int[] {0,3}),
-                Arguments.of(new int[]{6,5,4},new int[]{5,4,6},new int[]{3,0}),
-                Arguments.of(new int[]{1,2,3},new int[]{4,5,6},new int[]{0,0})
+                Arguments.of(new int[]{1, 2, 3}, new int[]{3, 2, 1}, new int[]{2, 1}),
+                Arguments.of(new int[]{4, 2, 3}, new int[]{4, 2, 3}, new int[]{0, 3}),
+                Arguments.of(new int[]{6, 5, 4}, new int[]{5, 4, 6}, new int[]{3, 0}),
+                Arguments.of(new int[]{1, 2, 3}, new int[]{4, 5, 6}, new int[]{0, 0})
         );
     }
 
@@ -55,6 +54,4 @@ class GameTest {
         int[] result = game.checkAnswer(answer, userInput);
         assertThat(result).isEqualTo(expected);
     }
-
-
 }
