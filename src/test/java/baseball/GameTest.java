@@ -31,4 +31,11 @@ public class GameTest {
         assertThat(BALL).isEqualTo(GameResult.BALL);
         assertThat(NOTHING).isEqualTo(GameResult.NOTHING);
     }
+
+    @Test
+    @DisplayName("숫자 문자열을 받아 숫자 배열로 리턴한다")
+    void parseToIntListTest() {
+        assertThat(game.parseToIntList("123")).containsExactly(1,2,3);
+        assertThat(game.parseToIntList("345")).containsExactly(3,4,5);
+    }
 }

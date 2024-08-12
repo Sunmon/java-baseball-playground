@@ -2,6 +2,7 @@ package baseball;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Game {
@@ -29,7 +30,13 @@ public class Game {
         return ball1.getResult(ball2);
     }
 
-//    public List<GameResult> play() {
-//
-//    }
+    public void play() {
+        InputView inputView = new InputView();
+
+        inputView.getUserInput();
+    }
+
+    public List<Integer> parseToIntList(String input) {
+        return input.chars().map(Character::getNumericValue).boxed().toList();
+    }
 }
