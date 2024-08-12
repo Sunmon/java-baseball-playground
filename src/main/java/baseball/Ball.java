@@ -4,7 +4,8 @@ import java.util.Objects;
 
 public class Ball {
     private final int value;
-    private final int pos;
+
+    private int pos;
 
     public Ball() {
         this.value = getRandNum();
@@ -13,6 +14,10 @@ public class Ball {
 
     public Ball(int value, int pos) {
         this.value = value;
+        this.pos = pos;
+    }
+
+    public void setPos(int pos) {
         this.pos = pos;
     }
 

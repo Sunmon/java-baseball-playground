@@ -17,6 +17,7 @@ public class GameTest {
         List<Ball> balls = game.pickBalls(n);
         assertThat(balls).hasSize(n);
         assertThat(balls).extracting("value").doesNotHaveDuplicates();
+        assertThat(balls).extracting("pos").containsExactly(0,1,2);
     }
 
     @Test
@@ -30,5 +31,4 @@ public class GameTest {
         assertThat(BALL).isEqualTo(GameResult.BALL);
         assertThat(NOTHING).isEqualTo(GameResult.NOTHING);
     }
-
 }

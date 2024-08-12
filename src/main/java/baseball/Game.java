@@ -8,7 +8,9 @@ public class Game {
     public List<Ball> pickBalls(int n) {
         List<Ball> result = new ArrayList<>();
         for(int i = 0; i< n; i++) {
-            result.add(new Ball());
+            Ball ball = new Ball();
+            ball.setPos(i);
+            result.add(ball);
         }
 
         // 중복 검사
