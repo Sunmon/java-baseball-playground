@@ -38,4 +38,14 @@ public class GameTest {
         assertThat(game.parseToIntList("123")).containsExactly(1,2,3);
         assertThat(game.parseToIntList("345")).containsExactly(3,4,5);
     }
+
+    @Test
+    @DisplayName("숫자 배열을 받아 순서대로 볼을 만들어 리턴한다")
+    void createBalls() {
+        List<Integer> inputs = List.of(1, 2, 3);
+        List<Ball> balls = game.createBalls(inputs);
+        assertThat(balls).hasSize(3);
+        assertThat(balls).extracting("value").doesNotHaveDuplicates();
+        assertThat(balls).extracting("pos").containsExactly(0,1,2);
+    }
 }

@@ -37,6 +37,15 @@ public class Game {
     }
 
     public List<Integer> parseToIntList(String input) {
-        return input.chars().map(Character::getNumericValue).boxed().toList();
+        return input.chars().map(Character::getNumericValue).boxed().collect(Collectors.toList());
+    }
+
+    public List<Ball> createBalls(List<Integer> inputs) {
+        List<Ball> result = new ArrayList<>();
+        for(int i = 0; i<inputs.size(); i++) {
+            result.add(new Ball(inputs.get(i), i));
+        }
+
+        return result;
     }
 }
