@@ -19,5 +19,16 @@ public class GameTest {
         assertThat(balls).extracting("value").doesNotHaveDuplicates();
     }
 
+    @Test
+    @DisplayName("공의 자리와 값을 비교하여 결과를 얻는다")
+    void throwBallTest() {
+        GameResult STRIKE = game.throwBall(new Ball(1, 0), new Ball(1,0));
+        GameResult BALL = game.throwBall(new Ball(1, 0), new Ball(1,1));
+        GameResult NOTHING = game.throwBall(new Ball(1, 0), new Ball(2,0));
+
+        assertThat(STRIKE).isEqualTo(GameResult.STRIKE);
+        assertThat(BALL).isEqualTo(GameResult.BALL);
+        assertThat(NOTHING).isEqualTo(GameResult.NOTHING);
+    }
 
 }

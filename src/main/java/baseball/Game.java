@@ -22,4 +22,12 @@ public class Game {
 
         return result;
     }
+
+    public GameResult throwBall(Ball ball1, Ball ball2) {
+        return ball1.getResult(ball2);
+    }
+
+//    public List<GameResult> play() {
+//
+//    }
 }

@@ -17,9 +17,9 @@ public class BallTest {
     @Test
     @DisplayName("두 공이 같은 값을 가지는지 비교한다")
     void isEqualTest() {
-        Ball ball1 = new Ball(1);
-        Ball ball2 = new Ball(2);
-        Ball ball3 = new Ball(1);
+        Ball ball1 = new Ball(1,0);
+        Ball ball2 = new Ball(2,0);
+        Ball ball3 = new Ball(1,0);
         assertThat(ball1.equals(ball2)).isFalse();
         assertThat(ball1.equals(ball3)).isTrue();
     }
