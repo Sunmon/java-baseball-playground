@@ -1,5 +1,7 @@
 package baseball;
 
+import java.util.Objects;
+
 public class Ball {
     private final int value;
 
@@ -15,7 +17,16 @@ public class Ball {
         return (int)(Math.random()*9) + 1;
     }
 
-    public boolean isEqualTo(Ball user) {
-        return user.value == this.value;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ball ball = (Ball) o;
+        return value == ball.value;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }

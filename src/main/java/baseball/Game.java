@@ -14,7 +14,7 @@ public class Game {
         // 중복 검사
         for(int i = 0; i<result.size(); i++) {
             for(int j = i+1; j < result.size(); j++) {
-                if (result.get(i).isEqualTo(result.get(j))) {
+                if (result.get(i).equals(result.get(j))) {
                     return pickBalls(n);
                 }
             }

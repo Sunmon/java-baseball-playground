@@ -20,8 +20,8 @@ public class BallTest {
         Ball ball1 = new Ball(1);
         Ball ball2 = new Ball(2);
         Ball ball3 = new Ball(1);
-        assertThat(ball1.isEqualTo(ball2)).isFalse();
-        assertThat(ball1.isEqualTo(ball3)).isTrue();
+        assertThat(ball1.equals(ball2)).isFalse();
+        assertThat(ball1.equals(ball3)).isTrue();
     }
 
 }
