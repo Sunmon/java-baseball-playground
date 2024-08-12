@@ -3,6 +3,10 @@ package baseball;
 import java.util.Objects;
 
 public class Ball {
+    public int getValue() {
+        return value;
+    }
+
     private final int value;
 
     private int pos;

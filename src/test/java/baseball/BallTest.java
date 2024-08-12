@@ -23,5 +23,17 @@ public class BallTest {
         assertThat(ball1.equals(ball2)).isFalse();
         assertThat(ball1.equals(ball3)).isTrue();
     }
+    @Test
+    @DisplayName("게임 결과를 계산한다 / ball, strike, nothing")
+    void getResultTest() {
+        Ball ball = new Ball(1,1);
+        Ball ball2 = new Ball(7,2);
+        assertThat(ball.getResult(new Ball(1,0))).isEqualTo(GameResult.BALL);
+        assertThat(ball2.getResult(new Ball(1,1))).isEqualTo(GameResult.NOTHING);
+        assertThat(ball2.getResult(new Ball(7,1))).isEqualTo(GameResult.BALL);
+        assertThat(ball2.getResult(new Ball(7,2))).isEqualTo(GameResult.STRIKE);
+        assertThat(ball.getResult(new Ball(1,1))).isEqualTo(GameResult.STRIKE);
+        assertThat(ball.getResult(new Ball(2,0))).isEqualTo(GameResult.NOTHING);
+    }
 
 }

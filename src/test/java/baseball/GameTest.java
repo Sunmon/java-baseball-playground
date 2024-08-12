@@ -17,15 +17,17 @@ public class GameTest {
         List<Ball> balls = game.pickBalls(n);
         assertThat(balls).hasSize(n);
         assertThat(balls).extracting("value").doesNotHaveDuplicates();
+        assertThat(balls).extracting("value").allMatch(i -> (int)i >= 1 && (int)i <= 9);
         assertThat(balls).extracting("pos").containsExactly(0,1,2);
     }
 
     @Test
     @DisplayName("공의 자리와 값을 비교하여 결과를 얻는다")
     void throwBallTest() {
-        GameResult STRIKE = game.throwBall(new Ball(1, 0), new Ball(1,0));
-        GameResult BALL = game.throwBall(new Ball(1, 0), new Ball(1,1));
-        GameResult NOTHING = game.throwBall(new Ball(1, 0), new Ball(2,0));
+        List<Ball> balls = List.of(new Ball(1, 0), new Ball(1, 0), new Ball(1, 0));
+        GameResult STRIKE = game.throwBall(balls, new Ball(1,0));
+        GameResult BALL = game.throwBall(balls, new Ball(1,1));
+        GameResult NOTHING = game.throwBall(balls, new Ball(2,0));
 
         assertThat(STRIKE).isEqualTo(GameResult.STRIKE);
         assertThat(BALL).isEqualTo(GameResult.BALL);
